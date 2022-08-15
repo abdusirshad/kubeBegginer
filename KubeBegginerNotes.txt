@@ -1,0 +1,46 @@
+NOTE:plz restart minikube after server reboot.
+minikube start
+54.87.106.185--Master
+44.206.128.28--Node2
+50.16.142.154 --Node1
+sg-0ea23e0a6a6ce62b9
+vpc-032bfdb48b39c5669
+subnet-0bc06400b0c9e5f09
+ssm-role
+Cluster-Image
+
+
+
+What is the flavor and version of Operating System on which the Kubernetes nodes are running?
+kubectl get nodes -o wide
+kubectl get pods -o wide
+kubectl describe pod nginx
+kubectl run nginx --image nginx
+
+kubectl create -f pod-definition.yml(To craete a pod with a yml file)
+kubectl get pods
+kubectl describe pod myapp-prod
+
+
+Create a new pod with the nginx image.
+kubectl run nginx --image=nginx
+
+
+Create a new pod with the name redis and with the image redis123.
+Use a pod-definition YAML file. And yes the image name is wrong!
+
+kubectl run redis --image=redis123 --dry-run=client -o yaml > redis-definition.yaml
+kubectl create -f redis-definition.yaml 
+kubectl get pods
+
+kubectl get replicationcontroller
+kubectl get replicaset
+kubectl scale --replicas=6 -f replicaset-definition.yaml
+kubectl replace -f replicaset-definition.yaml (To update the pods with updated yaml file)
+kubectl get all
+kubectl describe deployment myapp-deployment
+kubectl rollout status deployment.apps/httpd-frontend
+kubectl rollout history deployment.apps/httpd-frontend
+minikube service hello-minikube --url
+kubectl get deployments,svc
+kubectl get pods,svc
